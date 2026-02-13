@@ -7,7 +7,7 @@
  * Reads as many bytes as possible from the buffer, but at most out_len.
  * Returns the number of bytes read.
  */
-size_t buffer_read_bytes(buffer_t *buffer, uint8_t *out, size_t out_len);
+size_t buffer_read_bytes_with_size(buffer_t *buffer, uint8_t *out, size_t out_len);
 
 /**
  * Reads out_len bytes to the out buffer
