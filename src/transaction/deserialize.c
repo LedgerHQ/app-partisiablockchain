@@ -114,7 +114,7 @@ static parser_status_e parse_rpc_mpc_token(buffer_t *chunk, transaction_t *tx) {
         }
 
         // Read long memo
-        size_t read_bytes = buffer_read_bytes(chunk, tx->mpc_transfer.memo, memo_length);
+        size_t read_bytes = buffer_read_bytes_with_size(chunk, tx->mpc_transfer.memo, memo_length);
 
         // Check that the entire memo was read, and not just a part (such that
         // the rest of the memo is on the next chunk.)

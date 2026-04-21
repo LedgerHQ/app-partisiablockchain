@@ -737,7 +737,7 @@ static void test_buffer_read_bytes_out_longer(void **state) {
     buffer_t buf = {.ptr = raw_buffer, .size = sizeof(raw_buffer), .offset = 0};
 
     uint8_t out_buffer[20];
-    size_t amount_read = buffer_read_bytes(&buf, out_buffer, sizeof(out_buffer));
+    size_t amount_read = buffer_read_bytes_with_size(&buf, out_buffer, sizeof(out_buffer));
     assert_int_equal(amount_read, 10);
 }
 
@@ -748,7 +748,7 @@ static void test_buffer_read_bytes_in_longer(void **state) {
     buffer_t buf = {.ptr = raw_buffer, .size = sizeof(raw_buffer), .offset = 0};
 
     uint8_t out_buffer[10];
-    size_t amount_read = buffer_read_bytes(&buf, out_buffer, sizeof(out_buffer));
+    size_t amount_read = buffer_read_bytes_with_size(&buf, out_buffer, sizeof(out_buffer));
     assert_int_equal(amount_read, 10);
 }
 
@@ -757,7 +757,7 @@ static void test_buffer_variant_read_with_offset(size_t offset, size_t expected_
     buffer_t buf = {.ptr = raw_buffer, .size = sizeof(raw_buffer), .offset = offset};
 
     uint8_t out_buffer[10];
-    size_t amount_read = buffer_read_bytes(&buf, out_buffer, sizeof(out_buffer));
+    size_t amount_read = buffer_read_bytes_with_size(&buf, out_buffer, sizeof(out_buffer));
     assert_int_equal(amount_read, expected_read);
 }
 
